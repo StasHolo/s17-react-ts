@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import './App.css'
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useEffect } from "react"
 
 function App() {
   
-  const [poke, setPoke] = useState({ results: [] });
+  const [poke, setPoke] = useState<PokemonList>({ results: [] });
 
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/pokemon/")
@@ -17,6 +16,15 @@ function App() {
         setPoke(r)
     })
 }, [])
+
+interface Pokemon {
+  name: string;
+  url: string;
+}
+
+interface PokemonList {
+  results: Pokemon[];
+}
 
 console.log('pokemons:', poke)
 
@@ -41,7 +49,7 @@ console.log('pokemons:', poke)
     </>
   )
 }
-function getIdFromUrl(url) {
+function getIdFromUrl(url: string) {
   const parts = url.split('/');
   return parts[parts.length - 2];
 }
