@@ -1,6 +1,7 @@
 {
   "name": "s17-react-ts",
   "private": true,
+  "homepage": "https://StasHolo.github.io/s17-react-ts",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
